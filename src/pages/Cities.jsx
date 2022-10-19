@@ -1,12 +1,12 @@
-import { HomePage } from '../components/HomePage';
+import { CityPage } from '../components/CityPage';
 import { Navbar } from '../components/Navbar';
 import { links } from '../helpers/links';
 
-export const Home = () => {
+export const Cities = () => {
   return (
     <>
       <Navbar props={links} />
-      <HomePage />
+      <CityPage />
     </>
   );
 };

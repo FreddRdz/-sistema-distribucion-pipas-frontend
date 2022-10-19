@@ -1,11 +1,21 @@
 .header {
   background-color: #f8f8ff;
   display: flex;
+  height: 10vh;
   align-items: center;
   justify-content: space-between;
   padding: 5px 20px 5px 20px;
   min-width: 320px;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-links {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-links:hover {
+  color: gray;
 }
 
 .page-title__content {
@@ -19,7 +29,7 @@
 }
 
 .page-logo {
-  width: 70px;
+  width: 60px;
 }
 
 .ul-navbar {

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Navbar = (links) => {
   const { props } = links;
@@ -9,10 +9,10 @@ export const Navbar = (links) => {
         <h2 className='page-title'>Agua de Nuevo León</h2>
         <nav className='navbar'>
           <ul className='ul-navbar'>
-            {props.map((element) => (
-              <li className='il-ul-navbar' key={element}>
-                {element}
-              </li>
+            {props.map(({ pageName, linkTo }) => (
+              <Link className='navbar-links' to={linkTo} key={pageName}>
+                {pageName}
+              </Link>
             ))}
           </ul>
         </nav>

@@ -1,0 +1,101 @@
+.main-homePage {
+  display: grid;
+  grid-template-columns: 10% 20% 20% 15% 25% 10%;
+  grid-template-rows: 50px 100px 100px 100px 100px 100px 50px;
+}
+
+.home-cities-container {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  background: #fd746c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ff9068,
+    #fd746c
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ff9068,
+    #fd746c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 15px;
+  box-shadow: 0px 17px 30px 11px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.home-pipes-container {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 5;
+  grid-row-end: 7;
+  background: #ffb75e; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ed8f03,
+    #ffb75e
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ed8f03,
+    #ffb75e
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 15px;
+  box-shadow: 0px 17px 30px 11px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.home-map-container {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: 7;
+  background: #f46b45; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #eea849,
+    #f46b45
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #eea849,
+    #f46b45
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  border-radius: 15px;
+  box-shadow: 0px 17px 30px 11px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.home-title-city,
+.home-title-pipe,
+.home-title-map {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+}
+
+.home-text-city,
+.home-text-pipe,
+.home-text-map {
+  font-size: 16px;
+  color: white;
+}
+
+.home-button-city,
+.home-button-pipe,
+.home-button-map {
+  color: white;
+  font-weight: bold;
+}
+
+.home-button-city:hover,
+.home-button-pipe:hover,
+.home-button-map:hover {
+  color: #cac9cd;
+}
+
+.map {
+  height: 90vh;
+}

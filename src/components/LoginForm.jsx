@@ -30,8 +30,9 @@ export const LoginForm = () => {
         text: 'No puedes dejar campos vacíos',
       });
     } else {
-      postData().then((status) => {
-        if (status === 200) {
+      postData().then((data) => {
+        if (data.status === 200) {
+          localStorage.setItem('TokenKey', data.tokenSession);
           navigate('/');
         } else {
           Swal.fire({
@@ -47,7 +48,7 @@ export const LoginForm = () => {
   const postData = async () => {
     try {
       const res = await axios.post(postLogin, datos);
-      return res.data.status;
+      return res.data;
     } catch (error) {
       const { data } = error.response;
       return data.status;

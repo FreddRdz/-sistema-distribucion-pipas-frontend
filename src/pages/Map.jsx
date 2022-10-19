@@ -1,12 +1,12 @@
-import { HomePage } from '../components/HomePage';
+import { MapPage } from '../components/MapPage';
 import { Navbar } from '../components/Navbar';
 import { links } from '../helpers/links';
 
-export const Home = () => {
+export const Map = () => {
   return (
     <>
       <Navbar props={links} />
-      <HomePage />
+      <MapPage />
     </>
   );
 };
