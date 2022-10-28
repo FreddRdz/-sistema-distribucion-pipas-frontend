@@ -20,14 +20,18 @@ export const TableBodyAdd = ({ props }) => {
   };
 
   const handleAddPipe = async (pipeId) => {
-    const res = await axios.put(
-      'http://localhost:5050/api/v1/cities/add/pipe/' + cityId + '/' + pipeId,
-      {
-        headers: { Authorization: localStorage.getItem('TokenKey') },
+    try {
+      const res = await axios.put(
+        'http://localhost:5050/api/v1/cities/add/pipe/' + cityId + '/' + pipeId,
+        {
+          headers: { Authorization: localStorage.getItem('TokenKey') },
+        }
+      );
+      if (res.status === 200) {
+        alertSuccesful(pipeId);
       }
-    );
-    if (res.status === 200) {
-      alertSuccesful(pipeId);
+    } catch (error) {
+      console.log(error);
     }
   };
   return (

@@ -96,7 +96,11 @@ export const PipesPage = () => {
       datos.capacity = Number(capacity);
       setDatos((datos) => ({ ...datos, ...datos.capacity }));
 
-      const res = await axios.post('http://localhost:5050/api/v1/pipes', datos);
+      const res = await axios.post(
+        'http://localhost:5050/api/v1/pipes',
+        datos,
+        { headers: { Authorization: localStorage.getItem('TokenKey') } }
+      );
       const { data } = res.data;
 
       handleClose();
@@ -137,7 +141,8 @@ export const PipesPage = () => {
 
   const handleDeletePipe = async (pipeId) => {
     const res = await axios.delete(
-      'http://localhost:5050/api/v1/pipes/' + pipeId
+      'http://localhost:5050/api/v1/pipes/' + pipeId,
+      { headers: { Authorization: localStorage.getItem('TokenKey') } }
     );
 
     if (res.status === 200) {
@@ -156,7 +161,9 @@ export const PipesPage = () => {
 
       const res = await axios.put(
         'http://localhost:5050/api/v1/pipes/' + id,
-        datos
+
+        datos,
+        { headers: { Authorization: localStorage.getItem('TokenKey') } }
       );
       const { data } = res.data;
 

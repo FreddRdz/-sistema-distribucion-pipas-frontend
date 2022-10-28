@@ -1,11 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { MapPage } from '../components/MapPage';
 import { Navbar } from '../components/Navbar';
-
+import { UsuariosPage } from '../components/UsuariosPage';
 import { links, linksAdmin } from '../helpers/links';
 
-export const Map = () => {
+export const Usuarios = () => {
   const [role, setRole] = useState('');
 
   const getRole = async () => {
@@ -25,7 +24,6 @@ export const Map = () => {
   useEffect(() => {
     getRole();
   }, []);
-
   return (
     <>
       {role === 'user' ? (
@@ -33,7 +31,7 @@ export const Map = () => {
       ) : (
         <Navbar props={{ links: linksAdmin, logout: true }} />
       )}
-      <MapPage />
+      <UsuariosPage />
     </>
   );
 };
