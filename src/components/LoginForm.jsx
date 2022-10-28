@@ -1,9 +1,11 @@
+import { useContext } from 'react';
+import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { orange } from '@mui/material/colors';
-import axios from 'axios';
-import { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 import Swal from 'sweetalert2';
 
 const postLogin = 'http://localhost:5050/api/v1/auth/login';
@@ -11,6 +13,8 @@ const postLogin = 'http://localhost:5050/api/v1/auth/login';
 export const LoginForm = () => {
   const [datos, setDatos] = useState({ email: '', password: '' });
   const navigate = useNavigate();
+
+  const { login } = useContext(AuthContext);
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -33,6 +37,7 @@ export const LoginForm = () => {
       postData().then((data) => {
         if (data.status === 200) {
           localStorage.setItem('TokenKey', data.tokenSession);
+          login();
           navigate('/');
         } else {
           Swal.fire({

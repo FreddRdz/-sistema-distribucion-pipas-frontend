@@ -7,7 +7,7 @@ export const Login = () => {
 
   return (
     <>
-      <Navbar props={links} />
+      <Navbar props={{ links: links, logout: false }} />
       <LoginForm />
     </>
   );

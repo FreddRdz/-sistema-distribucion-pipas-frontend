@@ -1,17 +1,32 @@
 import { useEffect, useState } from 'react';
 import { PolygonView } from './PolygonView';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
 
 const url = 'http://localhost:5050/api/v1/cities';
+const getPipesUrl = 'http://localhost:5050/api/v1/pipes';
 
 export const MapView = () => {
   const [data, setData] = useState([]);
+  const [pipes, setPipes] = useState([]);
 
   useEffect(() => {
     getData();
+    getAllPipes();
   }, []);
+
+  const getAllPipes = async () => {
+    try {
+      const res = await axios.get(getPipesUrl, {
+        headers: { Authorization: localStorage.getItem('TokenKey') },
+      });
+      const { data } = res;
+      setPipes(data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const getData = async () => {
     try {
@@ -80,45 +95,19 @@ export const MapView = () => {
             />
           );
         }
-
-        // return (
-        //   <Polygon
-        //     key={_id}
-        //     pathOptions={{
-        //       fillColor: '#FD8D3C',
-        //       fillOpacity: 0.3,
-        //       weight: 2,
-        //       opacity: 1,
-        //       dashArray: 3,
-        //       color: 'white',
-        //     }}
-        //     positions={coords}
-        //     eventHandlers={{
-        //       mouseover: (e) => {
-        //         const layer = e.target;
-        //         layer.setStyle({
-        //           fillOpacity: 0.7,
-        //           weight: 5,
-        //           dashArray: '',
-        //           color: '#666',
-        //           fillColor: '#D45962',
-        //         });
-        //       },
-        //       mouseout: (e) => {
-        //         const layer = e.target;
-        //         layer.setStyle({
-        //           fillOpacity: 0.3,
-        //           weight: 2,
-        //           dashArray: '3',
-        //           color: 'white',
-        //           fillColor: '#FD8D3C',
-        //         });
-        //       },
-        //     }}
-        //   >
-        //     <Popup>{`Municipio: ${name}`}</Popup>
-        //   </Polygon>
-        // );
+      })}
+      {pipes.map(({ _id, placas, percentageWater, capacity, position }) => {
+        return (
+          <Marker position={position} key={_id}>
+            <Popup>
+              <div className='container'>
+                <p className='my-1'>Placas: {placas}</p>
+                <p className='my-1'>Porcentaje de agua: {percentageWater}</p>
+                <p className='my-1'>Capacidad: {capacity} Litros</p>
+              </div>
+            </Popup>
+          </Marker>
+        );
       })}
     </MapContainer>
   );
