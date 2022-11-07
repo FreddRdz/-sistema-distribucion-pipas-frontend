@@ -22,7 +22,7 @@ export const TableData = ({ props }) => {
 
   const handleDeletePipe = async (pipeId) => {
     const res = await axios.delete(
-      'http://localhost:5050/api/v1/cities/delete/pipe/' +
+      'https://sistema-nl-agua.herokuapp.com/api/v1/cities/delete/pipe/' +
         cityId +
         '/' +
         pipeId,

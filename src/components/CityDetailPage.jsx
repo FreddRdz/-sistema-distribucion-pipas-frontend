@@ -11,7 +11,7 @@ export const CityDetailPage = () => {
   const [listCityPipes, setListCityPipes] = useState([]);
   const [pipes, setPipes] = useState([]);
   const { cityId } = useParams();
-  const getPipesUrl = 'http://localhost:5050/api/v1/pipes';
+  const getPipesUrl = 'https://sistema-nl-agua.herokuapp.com/api/v1/pipes';
 
   const getPipes = async () => {
     try {
@@ -29,7 +29,7 @@ export const CityDetailPage = () => {
     const getCityDataById = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5050/api/v1/cities/${cityId}`,
+          `https://sistema-nl-agua.herokuapp.com/api/v1/cities/${cityId}`,
           {
             headers: { Authorization: localStorage.getItem('TokenKey') },
           }

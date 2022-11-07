@@ -71,7 +71,7 @@ export const UsuariosPage = () => {
       console.log(datos);
 
       const res = await axios.post(
-        'http://localhost:5050/api/v1/users',
+        'https://sistema-nl-agua.herokuapp.com/api/v1/users',
         datos,
         { headers: { Authorization: localStorage.getItem('TokenKey') } }
       );
@@ -106,7 +106,7 @@ export const UsuariosPage = () => {
   const handleDeletePipe = async (userId) => {
     try {
       const res = await axios.delete(
-        'http://localhost:5050/api/v1/users/' + userId,
+        'https://sistema-nl-agua.herokuapp.com/api/v1/users/' + userId,
         { headers: { Authorization: localStorage.getItem('TokenKey') } }
       );
       if (res.status === 200) {
@@ -119,9 +119,12 @@ export const UsuariosPage = () => {
 
   const getAllUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5050/api/v1/users', {
-        headers: { Authorization: localStorage.getItem('TokenKey') },
-      });
+      const res = await axios.get(
+        'https://sistema-nl-agua.herokuapp.com/api/v1/users',
+        {
+          headers: { Authorization: localStorage.getItem('TokenKey') },
+        }
+      );
       const { data } = res;
       setUsers(data.data);
     } catch (error) {

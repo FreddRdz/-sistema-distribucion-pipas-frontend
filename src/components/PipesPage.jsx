@@ -22,7 +22,7 @@ export const PipesPage = () => {
   const [id, setId] = useState('');
   //
   const [datos, setDatos] = useState({ placas: '', capacity: '' });
-  const getPipesUrl = 'http://localhost:5050/api/v1/pipes';
+  const getPipesUrl = 'https://sistema-nl-agua.herokuapp.com/api/v1/pipes';
 
   const inputText = useRef(null);
   const placasRef = useRef();
@@ -97,7 +97,7 @@ export const PipesPage = () => {
       setDatos((datos) => ({ ...datos, ...datos.capacity }));
 
       const res = await axios.post(
-        'http://localhost:5050/api/v1/pipes',
+        'https://sistema-nl-agua.herokuapp.com/api/v1/pipes',
         datos,
         { headers: { Authorization: localStorage.getItem('TokenKey') } }
       );
@@ -141,7 +141,7 @@ export const PipesPage = () => {
 
   const handleDeletePipe = async (pipeId) => {
     const res = await axios.delete(
-      'http://localhost:5050/api/v1/pipes/' + pipeId,
+      'https://sistema-nl-agua.herokuapp.com/api/v1/pipes/' + pipeId,
       { headers: { Authorization: localStorage.getItem('TokenKey') } }
     );
 
@@ -160,7 +160,7 @@ export const PipesPage = () => {
       setDatos((datos) => ({ ...datos, ...datos.capacity }));
 
       const res = await axios.put(
-        'http://localhost:5050/api/v1/pipes/' + id,
+        'https://sistema-nl-agua.herokuapp.com/api/v1/pipes/' + id,
 
         datos,
         { headers: { Authorization: localStorage.getItem('TokenKey') } }

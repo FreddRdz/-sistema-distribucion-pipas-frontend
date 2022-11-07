@@ -10,7 +10,7 @@ export const Cities = () => {
   const getRole = async () => {
     try {
       const res = await axios.post(
-        'http://localhost:5050/api/v1/auth/validate',
+        'https://sistema-nl-agua.herokuapp.com/api/v1/auth/validate',
         {},
         { headers: { Authorization: localStorage.getItem('TokenKey') } }
       );

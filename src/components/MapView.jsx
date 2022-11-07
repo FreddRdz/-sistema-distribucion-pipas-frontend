@@ -4,8 +4,8 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
 
-const url = 'http://localhost:5050/api/v1/cities';
-const getPipesUrl = 'http://localhost:5050/api/v1/pipes';
+const url = 'https://sistema-nl-agua.herokuapp.com/api/v1/cities';
+const getPipesUrl = 'https://sistema-nl-agua.herokuapp.com/api/v1/pipes';
 
 export const MapView = () => {
   const [data, setData] = useState([]);

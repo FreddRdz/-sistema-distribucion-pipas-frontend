@@ -22,7 +22,10 @@ export const TableBodyAdd = ({ props }) => {
   const handleAddPipe = async (pipeId) => {
     try {
       const res = await axios.put(
-        'http://localhost:5050/api/v1/cities/add/pipe/' + cityId + '/' + pipeId,
+        'https://sistema-nl-agua.herokuapp.com/v1/cities/add/pipe/' +
+          cityId +
+          '/' +
+          pipeId,
         {
           headers: { Authorization: localStorage.getItem('TokenKey') },
         }

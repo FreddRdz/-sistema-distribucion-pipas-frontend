@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const url = 'http://localhost:5050/api/v1/cities';
+const url = 'https://sistema-nl-agua.herokuapp.com/api/v1/cities';
 
 export const CityPage = () => {
   const [data, setData] = useState([]);
