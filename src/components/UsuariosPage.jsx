@@ -82,7 +82,7 @@ export const UsuariosPage = () => {
       if (res.data.status === 201) {
         Swal.fire({
           icon: 'success',
-          title: 'Pipa agregada correctamente!',
+          title: 'Usuario agregado correctamente!',
           showConfirmButton: false,
           timer: 2000,
         }).then(() => {
@@ -95,7 +95,7 @@ export const UsuariosPage = () => {
   const alertSuccesful = (userId) => {
     Swal.fire({
       icon: 'success',
-      title: 'Pipa eliminada correctamente!',
+      title: 'Usuario eliminado correctamente!',
       showConfirmButton: false,
       timer: 2000,
     }).then(() => {
