@@ -143,7 +143,7 @@ export const UsuariosPage = () => {
       <Container className='mt-4'>
         <Row>
           <Col>
-            <h2>Lista de pipas</h2>
+            <h2>Lista de usuarios</h2>
           </Col>
           <Col className='d-flex justify-content-end'>
             <Button variant='success' onClick={handleShow}>
