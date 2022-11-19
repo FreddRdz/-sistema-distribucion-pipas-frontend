@@ -147,7 +147,7 @@ export const UsuariosPage = () => {
           </Col>
           <Col className='d-flex justify-content-end'>
             <Button variant='success' onClick={handleShow}>
-              Agregar pipa
+              Agregar usuario
             </Button>
           </Col>
         </Row>
